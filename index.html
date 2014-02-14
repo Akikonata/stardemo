@@ -180,7 +180,7 @@
                 case "#trade":
                     break;
                 case "#datausage":
-                    line = new KCLineChart(dLine,"c2");
+                    if(!line)line = new KCLineChart(dLine,"c2");
                     break;
                 default:break;
             }

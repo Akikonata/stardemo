@@ -5,18 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="index.css" type="text/css" rel="stylesheet">
-    <script src="kitygraph.all.min.js"></script>
-    <script src="kitychart/charts/pie.js"></script>
-    <script src="kitychart/charts/view.js"></script>
-    <script src="kitychart/charts/scatter-diagram.js"></script>
-    <script src="kitychart/charts/line-chart.js"></script>
-    <script src="kitychart/charts/chinamap.js"></script>
-    <script src="kitychart/charts/ubp-map.js"></script>
-    <script src="kitychart/charts/poly-chart.js"></script>
-    <script src="kitychart/charts/gender-chart.js"></script>
-    <script src="kitychart/test/data.test.js"></script>
-    <script src="jquery-2.1.0.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header class="navbar navbar-fixed-top bs-docs-nav" role="banner" style="background:#151B25">
@@ -30,38 +18,38 @@
     </div>
   </div>
 </header>
+
 <div class="container" style="margin-top:50px;width:100%">
-    <div class="row">
-        <div class="col-md-1" style="padding:0; z-index:2">
-            <ul class="nav bs-sidenav" id="left-list">
-                <li>
-                    <a href="javascript:void(0)" id="link-chart0" class="active">
-                        <span class="glyphicon glyphicon-asterisk"></span>
-                        <p>行业</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)" id="link-chart1">
-                        <span class="glyphicon glyphicon-search"></span>
-                        <p>流量</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)" id="link-chart2">
-                        <span class="glyphicon glyphicon-cloud"></span>
-                        <p>市场</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)" id="link-chart3">
-                        <span class="glyphicon glyphicon-user"></span>
-                        <p>用户</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-11" id="cont-pane" style="padding:30px;">
-            <h2 style="border-bottom:1px solid #eee; padding-bottom:20px">
+    <div class="row" id="page-tab">
+        <ul class="nav bs-sidenav nav-tabs col-md-1" id="left-list" style="z-index:2">
+            <li class="active">
+                <a href="#trade" id="link-chart0">
+                    <span class="glyphicon glyphicon-asterisk"></span>
+                    <p>行业</p>
+                </a>
+            </li>
+            <li>
+                <a href="#datausage" id="link-chart1">
+                    <span class="glyphicon glyphicon-search"></span>
+                    <p>流量</p>
+                </a>
+            </li>
+            <li>
+                <a href="#market" id="link-chart2">
+                    <span class="glyphicon glyphicon-cloud"></span>
+                    <p>市场</p>
+                </a>
+            </li>
+            <li>
+                <a href="#user" id="link-chart3">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <p>用户</p>
+                </a>
+            </li>
+        </ul>
+        <div class="col-md-11 tab-content" id="cont-pane">
+            <div class="tab-pane fade active in" id="trade">
+                <h2 style="border-bottom:1px solid #eee; padding-bottom:20px">
                 行业开发罗盘
                 <div class="btn-group pull-right">
                     <button type="button" class="btn btn-primary">时间</button>
@@ -71,51 +59,132 @@
                     <button type="button" class="btn btn-primary">媒体</button>
                     <button type="button" class="btn btn-primary">分析</button>
                 </div>
-            </h2>
-            <div class="col-md-9">
-                <select>
-                    <option>百度费用增速</option>
-                </select>
-                <div id="chart-area"></div>
-                 <select class="pull-right">
-                    <option>行业费用增速</option>
-                </select>
+                </h2>
+                <div class="col-md-9">
+                    <select>
+                        <option>百度费用增速</option>
+                    </select>
+                    <div id="c1"></div>
+                     <select class="pull-right">
+                        <option>行业费用增速</option>
+                    </select>
+                </div>
+                <div class="col-md-3" style="padding:0">
+                    <div class="table-outer">
+                        <h5>行业市场费用Top10</h5>
+                        <table class="table table-striped">
+                            <thead>
+                                <th>行业</th>
+                                <th>市场费用</th>
+                            </thead>
+                            <tbody>
+                                <tr><td>旅游</td><td>￥</td></tr>
+                                <tr><td>零售</td><td>￥</td></tr>
+                                <tr><td>网游</td><td>￥</td></tr>
+                                <tr><td>教育</td><td>￥</td></tr>
+                                <tr><td>金融</td><td>￥</td></tr>
+                                <tr><td>IT消费电子</td><td>￥</td></tr>
+                                <tr><td>日化</td><td>￥</td></tr>
+                                <tr><td>汽车</td><td>￥</td></tr>
+                                <tr><td>食品饮料</td><td>￥</td></tr>
+                                <tr><td>服饰</td><td>￥</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-outer">
+                        <h5>百度市场费用Top10<span class="caret pull-right" style="margin-top: 5px;"></span></h5>
+                    </div>
+                    <div class="table-outer">
+                        <h5>行业开发空间Top10<span class="caret pull-right" style="margin-top: 5px;"></span></h5>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3" style="padding:0">
-                <div class="table-outer">
-                    <h5>行业市场费用Top10</h5>
-                    <table class="table table-striped">
-                        <thead>
-                            <th>行业</th>
-                            <th>市场费用</th>
-                        </thead>
-                        <tbody>
-                            <tr><td>旅游</td><td>￥</td></tr>
-                            <tr><td>零售</td><td>￥</td></tr>
-                            <tr><td>网游</td><td>￥</td></tr>
-                            <tr><td>教育</td><td>￥</td></tr>
-                            <tr><td>金融</td><td>￥</td></tr>
-                            <tr><td>IT消费电子</td><td>￥</td></tr>
-                            <tr><td>日化</td><td>￥</td></tr>
-                            <tr><td>汽车</td><td>￥</td></tr>
-                            <tr><td>食品饮料</td><td>￥</td></tr>
-                            <tr><td>服饰</td><td>￥</td></tr>
-                        </tbody>
-                    </table>
+            <div class="tab-pane fade" id="datausage">
+                <h2 style="border-bottom:1px solid #eee; padding-bottom:20px">
+                流量机会探测
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-primary">时间</button>
+                    <button type="button" class="btn btn-primary">地域</button>
+                    <button type="button" class="btn btn-primary">行业</button>
+                    <button type="button" class="btn btn-primary">客户</button>
+                    <button type="button" class="btn btn-primary">频道</button>
+                    <button type="button" class="btn btn-primary">分析</button>
                 </div>
-                <div class="table-outer">
-                    <h5>百度市场费用Top10<span class="caret pull-right" style="margin-top: 5px;"></span></h5>
+                </h2>
+                <div class="col-md-9">
+                    <select>
+                        <option>PV/adPV</option>
+                    </select>
+                    <div id="c2"></div>
+                     <select class="pull-right">
+                        <option>时间</option>
+                    </select>
                 </div>
-                <div class="table-outer">
-                    <h5>行业开发空间Top10<span class="caret pull-right" style="margin-top: 5px;"></span></h5>
+                <div class="col-md-3" style="padding:0">
+                    <div class="table-outer">
+                        <h5>频道流量Top10</h5>
+                        <table class="table table-striped">
+                            <thead>
+                                <th>行业</th>
+                                <th>市场费用</th>
+                            </thead>
+                            <tbody>
+                                <tr><td>旅游</td><td>￥</td></tr>
+                                <tr><td>零售</td><td>￥</td></tr>
+                                <tr><td>网游</td><td>￥</td></tr>
+                                <tr><td>教育</td><td>￥</td></tr>
+                                <tr><td>金融</td><td>￥</td></tr>
+                                <tr><td>IT消费电子</td><td>￥</td></tr>
+                                <tr><td>日化</td><td>￥</td></tr>
+                                <tr><td>汽车</td><td>￥</td></tr>
+                                <tr><td>食品饮料</td><td>￥</td></tr>
+                                <tr><td>服饰</td><td>￥</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-outer">
+                        <h5>客户流量Top10<span class="caret pull-right" style="margin-top: 5px;"></span></h5>
+                    </div>
+                    <div class="table-outer">
+                        <h5>搜索词Top10<span class="caret pull-right" style="margin-top: 5px;"></span></h5>
+                    </div>
                 </div>
             </div>
+            <div class="tab-pane fade" id="market">333</div>
+            <div class="tab-pane fade" id="user">444</div>
         </div>
     </div>
+</div>
 </body>
+<script src="kitygraph.all.min.js"></script>
+<script src="kitychart/charts/pie.js"></script>
+<script src="kitychart/charts/view.js"></script>
+<script src="kitychart/charts/scatter-diagram.js"></script>
+<script src="kitychart/charts/line-chart.js"></script>
+<script src="kitychart/charts/chinamap.js"></script>
+<script src="kitychart/charts/ubp-map.js"></script>
+<script src="kitychart/charts/poly-chart.js"></script>
+<script src="kitychart/charts/gender-chart.js"></script>
+<script src="kitychart/test/data.test.js"></script>
+<script src="jquery-2.1.0.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <script>
-    (function(){
-        var scatter = new KCScatterDiagram(dScatter,"chart-area");
-    })();
+    var scatter = new KCScatterDiagram(dScatter,"c1");
+    var line;
+    $('#page-tab a').click(function (e) {
+        e.preventDefault()
+        var a = $(this);
+        a.tab('show');
+        setTimeout(function(){
+            switch(a.attr("href")){
+                case "#trade":
+                    break;
+                case "#datausage":
+                    line = new KCLineChart(dLine,"c2");
+                    break;
+                default:break;
+            }
+        },300);
+    });
 </script>
 </html>

@@ -126,7 +126,7 @@ var KCScatterDiagram = kity.createClass("scatterDiagram", (function() {
 				Dot.fxTranslate(vX - Dot.vX, vY - Dot.vY, 1000, 'easeOutExpo');
 				Dot.vX = vX;
 				Dot.vY = vY;
-			}
+			};
 			renderAxis();
 			var dots = d.data.series;
 			var exist = false,
@@ -156,5 +156,3 @@ var KCScatterDiagram = kity.createClass("scatterDiagram", (function() {
 		}
 	};
 })());
-
-console.log(KCScatterDiagram);
